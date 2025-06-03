@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "trainingHelper",
+    "version": "1.0.0",
+    "description": "",
+    "icons": {},
+    "action": {
+        "default_popup": "src/popup/popup.html"
+    },
+    "background": {
+        "service_worker": "src/background/index.js",
+        "type": "module"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs",
+        "contextMenus"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content/main.js"
+            ]
+        }
+    ]
+}
