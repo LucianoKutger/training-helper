@@ -28,8 +28,9 @@
     "clean": "rmdir /s /q .\\dist",
     "compile": "npx tsc",
     "fix-exports": "npx tsx helper/remove-exports",
-    "copy-assets": "robocopy . dist /E /XD src dist scripts helper proxy-server node_modules /XF .gitignore package-lock.json package.json tsconfig.json README.md || exit 0",
-    "build": "npm run clean && npm run compile && npm run copy-assets && npm run fix-exports"
+    "copy-assets": "cmd /C \"robocopy . dist /E /XD dist scripts helper proxy-server node_modules /XF *.ts .gitignore package-lock.json package.json tsconfig.json README.md || exit 0",
+    "build": "npm run clean && npm run compile && npm run copy-assets && npm run fix-exports",
+    "server": "cd proxy-server && npm run start"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.317",
